@@ -11505,6 +11505,17 @@ html {
   }
 }
 
+.contact-item { /* Added by me */
+  width: 100px;
+  vertical-align: middle
+  position: relative;
+  display: inline-block;
+  top: 5px;
+  /*margin-right: 10px;*/
+  font-size: small
+  fill: #fff;
+}
+
 .footer {
   padding-top: 5rem;
   padding-bottom: 5rem;
