@@ -7890,6 +7890,14 @@ textarea.form-control-lg {
   background-image: var(--bs-gradient) !important;
 }
 
+.bg-image-header { /* Okay i added this */
+  --bs-bg-opacity: 1;
+  /*background: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) url(../assets/img/space1.jpg) fixed !important;*/
+  background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity));
+  background-image: url(../assets/img/m31.jpg);
+  background-size:     cover;
+}
+
 .user-select-all {
   -webkit-user-select: all !important;
      -moz-user-select: all !important;
