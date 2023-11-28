@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Stellar population properties in CAVITY</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="css/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<!-- 
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-theme-l1">Logo</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Values</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">News</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Clients</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Partners</a>
+  </div>
+</div>
+-->
+
+<!-- Header -->
+<header class="masthead bg-image-header w3-text-white text-center">
+    <div class="container d-flex flex-column">
+        <!-- Masthead Heading-->
+        <h1 class="masthead-heading">Stellar population properties in CAVITY</h1>
+        <!-- Masthead Subheading-->
+        <!--
+        <p class="masthead-subheading font-weight-light mb-0">Astrophysicist - PhD student at IAA-CSIC</p>
+        -->
+    </div>
+</header>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" style="margin-top:139px" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Links</b></h4>
+  <!-- <a class="w3-bar-item w3-button w3-hover-black" href="#" onclick="Function_popup()">Data visualization</a> -->
+  <div class="tooltip w3-bar-item w3-hover-black">Data visualization
+    <span class="tooltiptext">Coming soon!</span>
+  </div>
+  <h4 class="w3-bar-item"><b>Downloads</b></h4>
+  <!--
+  <a class="w3-bar-item w3-button w3-hover-black" href="src/global_SP_CAVITY.fits" download>Global properties</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="src/maps_SP_CAVITY.fits" download>2D maps</a>
+  -->
+  <div class="tooltip w3-bar-item w3-hover-black">Global properties
+    <span class="tooltiptext">Coming soon!</span>
+  </div>
+  <div class="tooltip w3-bar-item w3-hover-black">2D maps
+    <span class="tooltiptext">Coming soon!</span>
+  </div>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+    
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container w3-justify" style="margin-top:139px">
+      <p> We analyze 118 optical IFU data cubes of galaxies in voids from the <a href="https://cavity.caha.es" target="_blank">CAVITY survey</a>, to obtain their stellar population properties. We provide the global values, as well as the 2D maps of said properties. </p>
+      <p> We used the non-parametric full spectral fitting code <a href="http://www.starlight.ufsc.br" target="_blank">STARLIGHT</a>, in a wavelength range of 3750 to 7500 &#8491;. The SSPs used were a combination of the ones of <a href="http://research.iac.es/galeria/alexandre.vazdekis/" target="_blank">Vazdekis et al. (2010)</a>, from the MILES stellar library (for ages &ge; 63 Myr) and the sunthetic models from <a href="https://home.iaa.csic.es/~rosa/new/SPS.html" target="_blank">Gonzalez Delgado et al. (2005)</a> for ages &lt; 63 Myr. Both collections of SSPs assume a Salpeter IMF.</p>
+      <p> To obtain the spatially-resolved stellar population properties, we used the PyCASSO pipeline. Prior to the fit, we performed a Voronoi segmentation with a target SNR of 20. We offer a <a href="" class="tooltip">visualization tool<span class="tooltiptext">Coming soon!</span></a> for the stellar properties of each CAVITY galaxy in our sample, which together with the results, will be public once CAVITY DR1 is released. </p>
+      <p> For more details about the methodology, check the article.</p>
+   </div>
+   <div class="w3-third w3-container"  style="margin-top:139px">
+     <img class="w3-image" src="src/logo_cavity.png" alt="CAVITY logo" />
+   </div>
+  </div>
+
+  <div class="w3-row w3-padding-64" id="sec_global">
+    <div class="w3-container w3-justify">
+      <h1 class="w3-text-teal">Global properties</h1>
+      <!-- <p>The results table of global properties are offered in this <a href="src/global_SP_CAVITY.fits" download>FITS file</a>. For each row of the BinTableHDU, we provide the following attributes:</p> -->
+      <p>The results table of global properties are offered in this <a href="" class="tooltip">FITS file<span class="tooltiptext">Coming soon!</span></a>. For each row of the BinTableHDU, we provide the following attributes:</p>
+      <table class="w3-table-all">
+        <tr>
+          <th>Column</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>name</td>
+          <td>Name of the CAVITY galaxy</td>
+        </tr>
+        <tr>
+          <td>HType</td>
+          <td>Morphological classification as Hubble type: E, S0, Sa, Sb, Sc or Sd</td>
+        </tr>
+        <tr>
+          <td>TType</td>
+          <td>Morphological classification as T-Type, from -3 to 10. Obtained from <a href="https://ui.adsabs.harvard.edu/abs/2018MNRAS.476.3661D/abstract" target="_blank">Dominguez Sanchez et al. (2018)</a></td>
+        </tr>
+        <tr>
+          <td>mass</td>
+          <td>Total present stellar mass, in units of solar masses</td>
+        </tr>
+        <tr>
+          <td>log_age</td>
+          <td>Logarithm of the light-weighted age, in units of years</td>
+        </tr>
+        <tr>
+          <td>SFR</td>
+          <td>Intensity of the star formation rate, in units of solar masses per yr</td>
+        </tr>
+        <tr>
+          <td>sSFR</td>
+          <td>Specific star formation rate, in units of Gyr<sup>-1</sup></td>
+        </tr>
+        <tr>
+          <td>HLR</td>
+          <td>Half-light radius, in kiloparsec</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="w3-row">
+    <div class="w3-container w3-justify">
+      <h1 class="w3-text-teal">2D maps</h1>
+      <!-- <p>We provide the 2D maps of the stellar population properties for each CAVITY galaxy in a single multi-extension <a href="#" download>FITS file</a>. Each HDU has the maps of a different galaxy, whose name appears in the extension name. The attributes of the binary table for a given galaxy are:</p> -->
+      <p>We provide the 2D maps of the stellar population properties for each CAVITY galaxy in a single multi-extension <a href="" class="tooltip">FITS file<span class="tooltiptext">Coming soon!</span></a>. Each HDU has the maps of a different galaxy, whose name appears in the extension name. The attributes of the binary table for a given galaxy are:</p>
+      <table class="w3-table-all">
+        <tr>
+          <th>Column</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>M_dens</td>
+          <td>Stellar mass density, in units of solar masses per parsec squared</td>
+        </tr>
+        <tr>
+          <td>log_age</td>
+          <td>Logarithm of the light-weighted age, in units of years</td>
+        </tr>
+        <tr>
+          <td>SFR_dens</td>
+          <td>Star formation rate, in units of solar masses per Gyr and parsec squared</td>
+        </tr>
+        <tr>
+          <td>sSFR</td>
+          <td>Specific star formation rate, in units of Gyr<sup>-1</sup></td>
+        </tr>
+      </table>
+      <p></p>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <!--
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a class="w3-button w3-black" href="#">1</a>
+      <a class="w3-button w3-hover-black" href="#">2</a>
+      <a class="w3-button w3-hover-black" href="#">3</a>
+      <a class="w3-button w3-hover-black" href="#">4</a>
+      <a class="w3-button w3-hover-black" href="#">5</a>
+      <a class="w3-button w3-hover-black" href="#">»</a>
+    </div>
+  </div>
+  -->
+
+  <!--
+  <footer id="myFooter">
+    <div class="w3-container w3-theme-l2 w3-padding-32">
+      <h4>Footer</h4>
+    </div>
+  -->
+
+    <div class="w3-container w3-theme-l1">
+        <!--<p>Developed by <a style="text-decoration: none"; href="EE/EasterEgg.html" target="_blank">Ana M. Conrado</a>, Rosa Gonzalez Delgado and Rubén García Benito</p>-->
+      <p>Developed by Ana M. Conrado, Rosa Gonzalez Delgado and Rubén García Benito</p>
+    </div>
+  </footer>
+
+<!-- END MAIN -->
+</div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+
+<script>
+// When the user clicks on <div>, open the popup
+function Function_popup() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+</script>
+
+</body>
+</html>
