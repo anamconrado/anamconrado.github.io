@@ -1,234 +1,440 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>Stellar population properties in CAVITY</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/w3.css">
-<link rel="stylesheet" href="css/w3-theme-black.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet" href="css/font-awesome.min.css">
-<style>
-html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
-.w3-sidebar {
-  z-index: 3;
-  width: 250px;
-  top: 43px;
-  bottom: 0;
-  height: inherit;
-}
-</style>
-</head>
-<body>
-
-<!-- Navbar -->
-<!-- 
-<div class="w3-top">
-  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
-    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-theme-l1">Logo</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Values</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">News</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Clients</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Partners</a>
-  </div>
-</div>
--->
-
-<!-- Header -->
-<header class="masthead bg-image-header w3-text-white text-center">
-    <div class="container d-flex flex-column">
-        <!-- Masthead Heading-->
-        <h1 class="masthead-heading">Stellar population properties in CAVITY</h1>
-        <!-- Masthead Subheading-->
-        <!--
-        <p class="masthead-subheading font-weight-light mb-0">Astrophysicist - PhD student at IAA-CSIC</p>
-        -->
-    </div>
-</header>
-
-<!-- Sidebar -->
-<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" style="margin-top:139px" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
-    <i class="fa fa-remove"></i>
-  </a>
-  <h4 class="w3-bar-item"><b>Links</b></h4>
-  <!-- <a class="w3-bar-item w3-button w3-hover-black" href="#" onclick="Function_popup()">Data visualization</a> -->
-  <div class="tooltip w3-bar-item w3-hover-black">Data visualization
-    <span class="tooltiptext">Coming soon!</span>
-  </div>
-  <h4 class="w3-bar-item"><b>Downloads</b></h4>
-  <!--
-  <a class="w3-bar-item w3-button w3-hover-black" href="src/global_SP_CAVITY.fits" download>Global properties</a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="src/maps_SP_CAVITY.fits" download>2D maps</a>
-  -->
-  <div class="tooltip w3-bar-item w3-hover-black">Global properties
-    <span class="tooltiptext">Coming soon!</span>
-  </div>
-  <div class="tooltip w3-bar-item w3-hover-black">2D maps
-    <span class="tooltiptext">Coming soon!</span>
-  </div>
-</nav>
-
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
-<div class="w3-main" style="margin-left:250px">
-    
-  <div class="w3-row w3-padding-64">
-    <div class="w3-twothird w3-container w3-justify" style="margin-top:139px">
-      <p> We analyze 118 optical IFU data cubes of galaxies in voids from the <a href="https://cavity.caha.es" target="_blank">CAVITY survey</a>, to obtain their stellar population properties. We provide the global values, as well as the 2D maps of said properties. </p>
-      <p> We used the non-parametric full spectral fitting code <a href="http://www.starlight.ufsc.br" target="_blank">STARLIGHT</a>, in a wavelength range of 3750 to 7000 &#8491;. The SSPs used were a combination of the ones of <a href="http://research.iac.es/galeria/alexandre.vazdekis/" target="_blank">Vazdekis et al. (2010)</a>, from the MILES stellar library (for ages &ge; 63 Myr) and the sunthetic models from <a href="https://home.iaa.csic.es/~rosa/new/SPS.html" target="_blank">Gonzalez Delgado et al. (2005)</a> for ages &lt; 63 Myr. Both collections of SSPs assume a Salpeter IMF.</p>
-      <p> To obtain the spatially-resolved stellar population properties, we used the PyCASSO pipeline. Prior to the fit, we performed a Voronoi segmentation with a target SNR of 20. We offer a <a href="" class="tooltip">visualization tool<span class="tooltiptext">Coming soon!</span></a> for the stellar properties of each CAVITY galaxy in our sample, which together with the results, will be public once CAVITY DR1 is released. </p>
-      <p> For more details about the methodology, check the article.</p>
-   </div>
-   <div class="w3-third w3-container"  style="margin-top:139px">
-     <img class="w3-image" src="src/logo_cavity.png" alt="CAVITY logo" />
-   </div>
-  </div>
-
-  <div class="w3-row w3-padding-64" id="sec_global">
-    <div class="w3-container w3-justify">
-      <h1 class="w3-text-teal">Global properties</h1>
-      <!-- <p>The results table of global properties are offered in this <a href="src/global_SP_CAVITY.fits" download>FITS file</a>. For each row of the BinTableHDU, we provide the following attributes:</p> -->
-      <p>The results table of global properties are offered in this <a href="" class="tooltip">FITS file<span class="tooltiptext">Coming soon!</span></a>. For each row of the BinTableHDU, we provide the following attributes:</p>
-      <table class="w3-table-all">
-        <tr>
-          <th>Column</th>
-          <th>Description</th>
-        </tr>
-        <tr>
-          <td>name</td>
-          <td>Name of the CAVITY galaxy</td>
-        </tr>
-        <tr>
-          <td>HType</td>
-          <td>Morphological classification as Hubble type: E, S0, Sa, Sb, Sc or Sd</td>
-        </tr>
-        <tr>
-          <td>TType</td>
-          <td>Morphological classification as T-Type, from -3 to 10. Obtained from <a href="https://ui.adsabs.harvard.edu/abs/2018MNRAS.476.3661D/abstract" target="_blank">Dominguez Sanchez et al. (2018)</a></td>
-        </tr>
-        <tr>
-          <td>mass</td>
-          <td>Total present stellar mass, in units of solar masses</td>
-        </tr>
-        <tr>
-          <td>log_age</td>
-          <td>Logarithm of the light-weighted age, in units of years</td>
-        </tr>
-        <tr>
-          <td>SFR</td>
-          <td>Intensity of the star formation rate, in units of solar masses per yr</td>
-        </tr>
-        <tr>
-          <td>sSFR</td>
-          <td>Specific star formation rate, in units of Gyr<sup>-1</sup></td>
-        </tr>
-        <tr>
-          <td>HLR</td>
-          <td>Half-light radius, in kiloparsec</td>
-        </tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="w3-row">
-    <div class="w3-container w3-justify">
-      <h1 class="w3-text-teal">2D maps</h1>
-      <!-- <p>We provide the 2D maps of the stellar population properties for each CAVITY galaxy in a single multi-extension <a href="#" download>FITS file</a>. Each HDU has the maps of a different galaxy, whose name appears in the extension name. The attributes of the binary table for a given galaxy are:</p> -->
-      <p>We provide the 2D maps of the stellar population properties for each CAVITY galaxy in a single multi-extension <a href="" class="tooltip">FITS file<span class="tooltiptext">Coming soon!</span></a>. Each HDU has the maps of a different galaxy, whose name appears in the extension name. The attributes of the binary table for a given galaxy are:</p>
-      <table class="w3-table-all">
-        <tr>
-          <th>Column</th>
-          <th>Description</th>
-        </tr>
-        <tr>
-          <td>M_dens</td>
-          <td>Stellar mass density, in units of solar masses per parsec squared</td>
-        </tr>
-        <tr>
-          <td>log_age</td>
-          <td>Logarithm of the light-weighted age, in units of years</td>
-        </tr>
-        <tr>
-          <td>SFR_dens</td>
-          <td>Star formation rate, in units of solar masses per Gyr and parsec squared</td>
-        </tr>
-        <tr>
-          <td>sSFR</td>
-          <td>Specific star formation rate, in units of Gyr<sup>-1</sup></td>
-        </tr>
-      </table>
-      <p></p>
-    </div>
-  </div>
-
-  <!-- Pagination -->
-  <!--
-  <div class="w3-center w3-padding-32">
-    <div class="w3-bar">
-      <a class="w3-button w3-black" href="#">1</a>
-      <a class="w3-button w3-hover-black" href="#">2</a>
-      <a class="w3-button w3-hover-black" href="#">3</a>
-      <a class="w3-button w3-hover-black" href="#">4</a>
-      <a class="w3-button w3-hover-black" href="#">5</a>
-      <a class="w3-button w3-hover-black" href="#">»</a>
-    </div>
-  </div>
-  -->
-
-  <!--
-  <footer id="myFooter">
-    <div class="w3-container w3-theme-l2 w3-padding-32">
-      <h4>Footer</h4>
-    </div>
-  -->
-
-    <div class="w3-container w3-theme-l1">
-        <!--<p>Developed by <a style="text-decoration: none"; href="EE/EasterEgg.html" target="_blank">Ana M. Conrado</a>, Rosa Gonzalez Delgado and Rubén García Benito</p>-->
-      <p>Developed by Ana M. Conrado, Rosa Gonzalez Delgado and Rubén García Benito</p>
-    </div>
-  </footer>
-
-<!-- END MAIN -->
-</div>
-
-<script>
-// Get the Sidebar
-var mySidebar = document.getElementById("mySidebar");
-
-// Get the DIV with overlay effect
-var overlayBg = document.getElementById("myOverlay");
-
-// Toggle between showing and hiding the sidebar, and add overlay effect
-function w3_open() {
-  if (mySidebar.style.display === 'block') {
-    mySidebar.style.display = 'none';
-    overlayBg.style.display = "none";
-  } else {
-    mySidebar.style.display = 'block';
-    overlayBg.style.display = "block";
-  }
-}
-
-// Close the sidebar with the close button
-function w3_close() {
-  mySidebar.style.display = "none";
-  overlayBg.style.display = "none";
-}
-</script>
-
-<script>
-// When the user clicks on <div>, open the popup
-function Function_popup() {
-  var popup = document.getElementById("myPopup");
-  popup.classList.toggle("show");
-}
-</script>
-
-</body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Ana María Conrado</title>
+        <!-- Favicon-->
+        <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1534/1534067.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#page-top">Ana María Conrado</a>
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">Sobre mi</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#investigacion">Investigación</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#publicaciones">Publicaciones</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#extras">Más cosas</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <!--header class="masthead bg-primary text-white text-center"-->
+        <header class="masthead bg-image-header text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <!-- Masthead Avatar Image-->
+                <!--img class="masthead-avatar mb-5" src="assets/img/fotoslack.png" alt="..." />
+                <!-- Masthead Heading-->
+                <h1 class="masthead-heading text-uppercase mb-0">Ana María Conrado</h1>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Masthead Subheading-->
+                <p class="masthead-subheading font-weight-light mb-0">Astrofísica - Estudiante de doctorado en el IAA-CSIC</p>
+            </div>
+        </header>
+        
+        <!-- About Section-->
+        <section class="page-section bg-primary text-white mb-0" id="about">
+            <div class="container">
+                <!-- About Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-white">Sobre mi</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- About Section Content-->
+                <div class="row">
+                    <!-- Photo -->
+                    <div class="col-lg-6 ms-auto" style="vertical-align:right">
+                        <img style="vertical-align:right" src="assets/img/fotoslack.png" alt="Foto con mi cara" ></div>
+                    <!-- Text -->
+                    <div class="col-lg-6 me-auto" style="text-align:justify;">
+                        <p class="lead">Me llamo Ana, y soy de Ronda (Málaga). Siempre me han gustado las ciencias naturales y las matemáticas, así que estudié física en la universidad de Granada, y luego hice un máster de astrofísica también aquí. Ahora trabajo en el IAA, en el departamento de astronomía extragaláctica. </p>
+                        <p class="lead">Me dedico a estudiar la evolución de las galaxias, en concreto las que están en las partes más vacías del Universo. Además de la investigación, tengo muchos más intereses como la divulgación, y (demasiados) hobbies como la música, el taekwondo y los tatuajes! </p></div>
+                </div>
+                <!-- About Section Button-->
+                <div class="text-center mt-4">
+                    <a class="btn btn-xl btn-outline-light" href="assets/CV_2023.pdf" target="_blank">
+                        <i class="fas fa-download me-2"></i>
+                        Descarga mi CV!
+                    </a>
+                </div-->
+            </div>
+        </section>
+        
+        <!-- Portfolio Section-->
+        <section class="page-section portfolio" id="investigacion">
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Investigación</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Grid Items -->
+                <div class="row justify-content-center">
+                    <!-- Galaxy evolution -->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto bg-image-inv-galaxies" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
+                            <p class="portfolio-text text-white">Evolución galáctica</p>
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <p class="portfolio-text text-white">Evolución galáctica</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Estructra a gran escala -->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto bg-image-inv-LSS" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
+                            <p class="portfolio-text text-white">Estructura a Gran Escala</p>
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <p class="portfolio-text text-white">Estructura a Gran Escala</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- IFS -->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto bg-image-inv-IFS" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
+                            <p class="portfolio-text text-white">Espectroscopía de campo integral</p>
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <p class="portfolio-text text-white">Espectroscopía de campo integral</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Stellar populations -->
+                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                        <div class="portfolio-item mx-auto bg-image-inv-stellpop" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
+                            <p class="portfolio-text text-white">Poblaciones estelares</p>
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <p class="portfolio-text text-white">Poblaciones estelares</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- CAVITY -->
+                    <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
+                        <div class="portfolio-item mx-auto bg-image-inv-CAVITY" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
+                            <p class="portfolio-text text-white">CAVITY</p>
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <p class="portfolio-text text-white">CAVITY</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- WEAVE -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="portfolio-item mx-auto bg-image-inv-WEAVE" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
+                            <p class="portfolio-text text-white">WEAVE</p>
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <p class="portfolio-text text-white">WEAVE</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Publicaciones Section-->
+        <section class="page-section portfolio" id="publicaciones">
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Publicaciones</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <p class="text-secondary text-center">En construcción</p>
+                <img class="img-fluid rounded mb-5" src="https://t4.ftcdn.net/jpg/01/31/55/79/360_F_131557924_HEsFFYYNdEwWW5n355D6qVIXLtLL1TN8.jpg" alt="Gato en un ordenador"></a>
+            </div>
+        </section>
+        
+        <!-- Extras Section-->
+        <section class="page-section portfolio" id="extras">
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Más cosas</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <p class="text-secondary text-center">También en construcción</p>
+                <img class="img-fluid rounded mb-5" src="https://as1.ftcdn.net/v2/jpg/05/56/68/56/1000_F_556685632_gJdAcz788TxJkhDnrIDwxkDV4FZjOp3D.jpg" alt="Otro gato en un ordenador"></a>
+            </div>
+        </section>
+        
+        <!-- Contact Section-->
+        <!--section class="page-section">
+            <div class="container">
+                <!-- Contact Section Heading-->
+                <!--h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Me</h2>
+                <!-- Icon Divider-->
+                <!--div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Contact Grid Items-->
+                <!--div class="row justify-content-center">
+                    <!-- Contact Icons + text -->
+                    <!--div class="col-lg-4 mb-5 mb-lg-0">
+                        <img class="contact-item" src="assets/img/icons/email.png" alt="Contact email"></a>
+                        <h4 class="contact-item">aconrado [at] iaa.es</h4>
+                    </div>
+                    <div class="col-lg-4 mb-5 mb-md-0">
+                        <img class="contact-item" src="assets/img/icons/pin.png" alt="Address"></a>
+                        <p class="contact-item">
+                            Glorieta de la Astronomía S/N<br />Granada, Spain</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <img class="contact-item" src="assets/img/icons/phone-call.png" alt="Phone number"></a>
+                        <span class="contact-item">+34 958121311 (ext. 502)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer text-center"  id="contact">
+            <div class="container">
+                <div class="row">
+                    <!-- Footer Location-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Contacto</h4>
+                        <p class="lead mb-0">
+                            aconrado [arroba] iaa.es
+                            <br />
+                            anamconrado [arroba] proton.me
+                        </p>
+                    </div>
+                    <!-- Footer Social Icons-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">En la Web</h4>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://x.com/conradoanam"><i class="fab fa-fw fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/anamconrado/"><i class="fab fa-fw fa-linkedin-in"></i></a>
+                    </div>
+                    <!-- Footer About Text-->
+                    <div class="col-lg-4">
+                        <!--h4 class="text-uppercase mb-4">About Freelancer</h4>
+                        <p class="lead mb-0">
+                            Freelance is a free to use, MIT licensed Bootstrap theme created by
+                            <a href="http://startbootstrap.com">Start Bootstrap</a>
+                            .
+                        </p-->
+                        <h4 class="text-uppercase mb-4">Localización</h4>
+                        <p class="lead mb-0">
+                            Instituto de Astrofísica de Andalucía
+                            <br />
+                            Glorieta de la Astronomía S/N, Granada, España
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Copyright Section-->
+        <div class="copyright py-4 text-center text-white">
+            <div class="container"><small>Copyright &copy; <a style="text-decoration: none"; href="EE.html" target="_blank">Ana M Conrado</a> 2024</small></div>
+        </div>
+        <!-- Portfolio Modals-->
+        <!-- Portfolio Modal 1: Galaxy evolution-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content bg-image-inv-galaxies">
+                    <div class="modal-header border-0" ><button class="btn-close"  type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0 text-white">Evolución galáctica</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line" style="background-color:white; border-color:white"></div>
+                                        <div class="divider-custom-icon" style="color:white"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line" style="background-color:white; border-color:white"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Text-->
+                                    <p class="mb-4 text-white">Las galaxias son conjuntos de estrellas, gas y polvo que comenzaron a crearse al principio del Universo y han ido evolucionando desde entonces. Nosotros y nuestro Sistema Solar vivimos dentro de una de ellas, la Vía Láctea. Estudiar su formación y evolución nos da mucha información acerca del origen y la naturaleza del Universo.</p>
+                                    <p class="mb-4 text-white">Mi trabajo se desarrolla dentro del campo de la astronomía extragaláctica, ya que utilizo observaciones de galaxias ajenas a la nuestra para sacar pistas acerca de cómo el ambiente en el que se desarrollan afecta a su evolución.</p>
+                                    <img class="img-fluid rounded mb-5" src="https://map.gsfc.nasa.gov/media/060915/060915_1600.png" alt="Un diagrama para ilustrar la evolución del Universo, desde el Big Bang a las galaxias de hoy en día." />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio Modal 2: LSS-->
+        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content bg-image-inv-LSS">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0 text-white">Estructura a Gran Escala</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line" style="background-color:white; border-color:white"></div>
+                                        <div class="divider-custom-icon" style="color:white"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line" style="background-color:white; border-color:white"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Text-->
+                                    <p class="mb-4 text-white">Si miramos el Universo desde muy lejos, podremos ver que la materia se organiza en una estructura de red, que se llama la Estructura a Gran Escala del Universo. En ella hay diferentes zonas: los cúmulos, los nodos de la red, donde se acumula la mayoría de la masa y ocurren la mayoría de los procesos de interacción entre galaxias; los filamentos, que son los hilos que unen los cúmulos y donde se encuentra una densidad cercana a la densidad media del Universo; y los vacíos, que son extensiones casi desérticas que ocupan más del 70% del volumen del Universo pero apenas un 10% de su masa.</p>
+                                    <p class="mb-4 text-white">El lugar dentro de esta estructura donde crecen las galaxias tiene marca la forma en la que estas evolucionan: una galaxia que esté más expuesta a interaccionar con sus vecinas o que viva en un medio con más gas o movmiento acabará teniendo unas propiedades diferentes a otras que no pasen por las mismas experiencias.</p>
+                                    <p class="mb-4 text-white">En mi trabajo me centro en evaluar el efecto que tiene el ambiente en la evolución de las galaxias. En concreto, las diferencias que tiene vivir en los vacíos cósmicos.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio Modal 3: IFS-->
+        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content bg-image-inv-IFS">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0 text-white">Espectroscopía de campo integral</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line" style="background-color:white; border-color:white"></div>
+                                        <div class="divider-custom-icon" style="color:white"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line" style="background-color:white; border-color:white"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Text-->
+                                    <p class="mb-4 text-white">Unas de las técnicas más novedosas para estudiar galaxias u otros objetos astronómicos es la espectrocopía de campo integral (IFS, de integral field spectroscopy en inglés). Esta técnica consiste en obtener datos tridimensionales de cada objeto: un cubo con dos dimensiones espaciales, que corresponden a la imagen del objeto, y una dimensión espectral. Esto significa que podremos medir el espectro en cada uno de los píxeles (o según les llamamos en el campo, espáxeles) del objeto, y a partir de su análisis se pueden obtener mapas de las propiedades que se quieran medir. Gracias a esto, podemos combinar la gran cantidad de información que nos ofrece la espectroscopía con el conocimiento de la distribución espacial que podríamos obtener con imágenes.</p>
+                                    <p class="mb-4 text-white">Cartografiados de galaxias con IFS famosos son por ejemplo CALIFA, SAMI o MaNGA, o los actuales CAVITY y WEAVE, que utilizan instrumentos localizados en Almería y en La Palma, en Canarias.</p>
+                                    <img class="img-fluid rounded mb-5" src="https://www.researchgate.net/publication/234791623/figure/fig1/AS:299696816967686@1448464697666/Representacion-de-un-cubo-de-datos-obtenido-con-la-tecnica-de-espectroscopia-de-campo.png" alt="Se muestra esquemática un cubo de datos: un cubo donde las dos dimensiones espacial muestran la imagen de una galaxia y la tercera su espectro en cada espaxel." />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio Modal 4: stellar populations-->
+        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content bg-image-inv-stellpop">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0 text-white">Poblaciones estelares</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line" style="background-color:white; border-color:white"></div>
+                                        <div class="divider-custom-icon" style="color:white"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line" style="background-color:white; border-color:white"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Text-->
+                                    <p class="mb-4 text-white">Una de las partes más esenciales de las galaxias son las estrellas. Las estrellas marcan su evolución, y permiten la creación de elementos más pesados que el hidrógeno gracias a la fusión nuclear.</p>
+                                    <p class="mb-4 text-white">La edad o la metalicidad (la cantidad de elementos pesados) que tengan las poblaciones estelares dentro de una galaxia marca su estado evolutivo y nos da pistas acerca de su pasado.</p>
+                                    <p class="mb-4 text-white">La composición de las poblaciones estelares deja huella en el espectro de una galaxia, y con técnicas de ajuste espectral puede conocerse su contenido. Utilizando programas como STARLIGHT o ProSpect, puedo conocer las historias de formación estelar, es decir, los ritmos a los que se han ido formando estrellas en una galaxia a lo largo de su vida. De esta forma, podemos trazar su evolución.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio Modal 5: CAVITY-->
+        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content bg-image-inv-CAVITY">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0 text-white">CAVITY</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line" style="background-color:white; border-color:white"></div>
+                                        <div class="divider-custom-icon" style="color:white"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line" style="background-color:white; border-color:white"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Text-->
+                                    <p class="mb-4 text-white">CAVITY (Calar Alto Void Integral-field Treasury surveY) es un projecto de legado del observatorio de Calar Alto, liderado por la UGR. Su objetivo es estudiar las galaxias en vacíos haciendo uso del intrumento de espectroscopía de campo integral del telescopio de 3.5m en Calar Alto (Almería), PMAS/PPaK.</p>
+                                    <p class="mb-4 text-white">Formo parte del projecto desde que comencé mi carrera en la investigación, analizando los datos con diferentes técnicas y siendo parte del grupo de control de calidad de los cubos de datos. Los objetivos, equipo científico y datos públicos se pueden encontrar en la <a href="https://cavity.caha.es" target="_blank">página web del proyecto</a>.</p>
+                                    <img class="img-fluid rounded mb-5" src="https://cavity.caha.es/static/img/logos/logo_cavity_ht-1024x341.png" alt="Logo de CAVITY" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio Modal 6: WEAVE-->
+        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content bg-image-inv-WEAVE">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0 text-white">WEAVE</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line" style="background-color:white; border-color:white"></div>
+                                        <div class="divider-custom-icon" style="color:white"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line" style="background-color:white; border-color:white"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Text-->
+                                    <p class="mb-4 text-white">En construcción.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
 </html>

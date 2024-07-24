@@ -1,0 +1,50 @@
+body {
+    background-color: #ffff00;
+}
+
+h1 {
+    color: fuchsia;
+    font-family: 'Comic Sans MS';
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.star {
+    width: 100px;
+}
+
+.block-stars {
+    text-align: center;
+    height: 100px;
+}
+
+.dance-block {
+    width: 550px;
+    height: 400px;
+    background-color: white;
+    margin: 40px 0;
+    position: relative;
+    left: 34%;
+    display: inline-block;
+}
+
+.dance-block #dance-fast{
+    position: absolute;
+    display: none;
+    height: 400px;
+    z-index: 98;
+    top: 0;
+    left: 0;
+}
+
+.dance-block:hover #dance-fast{
+    display: inline;
+}
+
+.button-play {
+    height: 400px;
+    display: inline;
+    z-index: 0;
+    position: absolute;
+    left: 0;
+}
